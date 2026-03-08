@@ -1,0 +1,68 @@
+---
+// Ubicacion.astro
+---
+
+<section id="ubicacion" class="relative min-h-screen flex items-center justify-center bg-emerald-950 py-24 px-4 overflow-hidden">
+  
+  <div class="absolute inset-0 z-0 opacity-15">
+    <img 
+      src="/src/assets/patron-ambar.png" 
+      alt="Patrón decorativo Ámbar" 
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-emerald-950/40"></div>
+  </div>
+
+  <div class="absolute top-0 -left-20 w-72 h-72 bg-emerald-900 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+  <div class="absolute bottom-0 -right-20 w-72 h-72 bg-[#D4A259] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+
+  <div class="relative z-10 max-w-6xl w-full">
+    
+    <div class="text-center mb-12">
+      <h2 class="font-['Cinzel_Decorative'] text-4xl md:text-5xl text-white mb-4">
+        Dónde Encontrarnos
+      </h2>
+      <div class="w-20 h-1 bg-[#D4A259] mx-auto"></div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row gap-8 bg-emerald-950/40 backdrop-blur-md border border-white/10 p-6 md:p-10 rounded-2xl shadow-2xl">
+      
+      <div class="w-full lg:w-1/2 flex flex-col justify-between gap-8">
+        <div>
+          <h3 class="text-[#D4A259] uppercase tracking-widest font-semibold text-lg mb-4 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Nuestra Tienda
+          </h3>
+          <p class="text-emerald-50/90 text-lg leading-relaxed font-light">
+            Avda. Lucio Díaz Flores Feo N°6, Local -6 <br/>
+            Llano del Camello, Las Chafiras <br/>
+            San Miguel de Abona, CP 38639 <br/>
+            Santa Cruz de Tenerife.
+          </p>
+        </div>
+
+        <div class="w-full h-48 md:h-64 overflow-hidden rounded-xl border border-white/10 group">
+          <img 
+            src="/src/assets/Frontal_Ambar.jpeg" 
+            alt="Fachada de la tienda Ámbar" 
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 min-h-[300px] rounded-xl overflow-hidden border border-white/10 relative">
+        <iframe 
+          src="https://maps.google.com/maps?q=Avda.%20Lucio%20D%C3%ADaz%20Flores%20Feo%206,%20San%20Miguel%20de%20Abona,%20Tenerife&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          class="absolute inset-0 w-full h-full border-0" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>

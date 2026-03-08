@@ -1,0 +1,27 @@
+---
+// Footer.astro
+// Obtenemos el año actual automáticamente para que nunca se quede desactualizado
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-emerald-950 text-emerald-50/70 py-8 px-6 border-t border-white/10">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    
+    <div class="text-sm text-center md:text-left font-light">
+      &copy; {currentYear} Ámbar Bisutería y Complementos. <br class="block md:hidden" /> Todos los derechos reservados.
+    </div>
+
+    <div class="text-sm text-center md:text-right font-light">
+      Hecho por 
+      <a 
+        href="https://www.linkedin.com/in/brian-macias-sergeeva" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="text-[#D4A259] font-semibold tracking-wide hover:text-white transition-colors duration-300 ml-1"
+      >
+        Brian Macias
+      </a>
+    </div>
+
+  </div>
+</footer>

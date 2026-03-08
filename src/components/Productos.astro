@@ -1,0 +1,72 @@
+---
+// src/components/Productos.astro
+
+// Aquí definimos tus tres categorías principales.
+// IMPORTANTE: Recuerda cambiar las rutas de las imágenes por las fotos reales de tus productos.
+const productos = [
+  {
+    titulo: "Bisutería",
+    descripcion: "Piezas únicas y elegantes diseñadas para realzar tu belleza natural. Nuestra colección de bisutería combina artesanía detallada con estilos contemporáneos, creando accesorios perfectos que aportan luz y sofisticación a cualquier ocasión.",
+    imagen: "/src/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de bisutería
+    boton: "Ver Colección"
+  },
+  {
+    titulo: "Perfumes Árabes",
+    descripcion: "Sumérgete en un mundo de aromas exóticos y envolventes. Seleccionamos fragancias exclusivas de larga duración que capturan la esencia del misticismo oriental, dejando una estela inolvidable y llena de personalidad a tu paso.",
+    imagen: "/src/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de perfumes
+    boton: "Descubrir Aromas"
+  },
+  {
+    titulo: "Moda y Complementos",
+    descripcion: "Completa tu estilo con nuestra cuidada selección de prendas y accesorios. Diseños versátiles y llenos de carácter que se adaptan a tu ritmo de vida, aportando siempre ese toque distintivo y elegante que caracteriza a Ámbar.",
+    imagen: "/src/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de moda
+    boton: "Ver Catálogo"
+  }
+];
+---
+
+<section id="productos" class="py-24 px-6 bg-slate-50">
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center mb-16">
+      <h2 class="font-['Cinzel_Decorative'] text-4xl md:text-5xl text-emerald-950 mb-4">
+        Nuestros Productos
+      </h2>
+      <div class="w-20 h-1 bg-[#D4A259] mx-auto"></div>
+    </div>
+
+    <div class="space-y-16">
+      {productos.map((producto, index) => (
+        <div 
+          class={`flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300
+            ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'}
+          `}
+        >
+          
+          <div class="w-full md:w-1/3 h-72 md:h-auto overflow-hidden relative">
+            <img 
+              src={producto.imagen} 
+              alt={producto.titulo} 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-emerald-900/0 group-hover:bg-emerald-900/20 transition-colors duration-500 pointer-events-none"></div>
+          </div>
+
+          <div class="w-full md:w-2/3 p-8 md:p-12 flex flex-col justify-center items-start">
+            <h3 class="font-['Cinzel_Decorative'] text-3xl text-emerald-950 mb-4">
+              {producto.titulo}
+            </h3>
+            <p class="text-slate-600 text-lg leading-relaxed mb-8 font-light">
+              {producto.descripcion}
+            </p>
+            <button class="px-8 py-3 border-2 border-[#D4A259] text-[#D4A259] hover:bg-[#D4A259] hover:text-white transition-colors duration-300 font-bold uppercase tracking-wider text-sm rounded">
+              {producto.boton}
+            </button>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

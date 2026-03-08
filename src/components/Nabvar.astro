@@ -1,0 +1,122 @@
+---
+import "../styles/global.css";
+const links = [
+  { name: "Sobre Nosotros", href: "#about" },
+  { name: "Productos", href: "#productos" },
+  { name: "Ubicación", href: "#ubicacion" },
+  { name: "Contacto", href: "#contacto" },
+];
+---
+
+<nav
+  id="main-nav"
+  class="fixed top-0 z-50 w-full flex items-center justify-between px-6 md:px-8 py-6 md:py-8 transition-all duration-500 bg-transparent text-white font-bold"
+>
+  <div id="nav-logo" class="transition-transform duration-500 z-50">
+    <a href="#">
+      <img 
+        class="w-40 md:w-60 transition-transform duration-300 hover:scale-110 cursor-pointer" 
+        src="/src/assets/Logo_Nav.png" 
+        alt="Logo de Ambar" 
+      />
+    </a>
+  </div>
+
+  <ul class="hidden md:flex gap-12 lg:gap-20 items-center text-xl lg:text-3xl">
+    {
+      links.map((link) => (
+        <li>
+          <a 
+            href={link.href} 
+            class="inline-block transition-all duration-300 hover:text-emerald-200 hover:scale-110"
+          >
+            {link.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <button id="menu-btn" class="flex md:hidden flex-col justify-center gap-2.5 w-10 h-10 z-50 cursor-pointer">
+    <span id="line1" class="w-8 h-1 bg-white rounded-full transition-all duration-300 origin-center"></span>
+    <span id="line2" class="w-8 h-1 bg-white rounded-full transition-all duration-300 origin-center"></span>
+  </button>
+
+  <div 
+    id="mobile-menu" 
+    class="fixed inset-0 bg-emerald-950/95 backdrop-blur-md flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40"
+  >
+    <ul class="flex flex-col gap-10 items-center text-3xl">
+      {
+        links.map((link) => (
+          <li>
+            <a 
+              href={link.href} 
+              class="mobile-link inline-block transition-all duration-300 hover:text-[#D4A259] hover:scale-110"
+            >
+              {link.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const nav = document.querySelector('#main-nav');
+  const logo = document.querySelector('#nav-logo');
+  const menuBtn = document.querySelector('#menu-btn');
+  const mobileMenu = document.querySelector('#mobile-menu');
+  const line1 = document.querySelector('#line1');
+  const line2 = document.querySelector('#line2');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  let isMenuOpen = false;
+
+  // 1. Lógica del Scroll (Tu código original, ajustado levemente para no estorbar al menú móvil)
+  window.addEventListener('scroll', () => {
+    if (isMenuOpen) return; // Si el menú está abierto, pausamos el efecto del scroll
+
+    if (window.scrollY > 50) {
+      nav?.classList.add('bg-emerald-900', 'shadow-xl', 'py-3', 'md:py-3');
+      nav?.classList.remove('bg-transparent', 'py-6', 'md:py-8');
+      logo?.classList.add('scale-90'); 
+    } else {
+      nav?.classList.add('bg-transparent', 'py-6', 'md:py-8');
+      nav?.classList.remove('bg-emerald-900', 'shadow-xl', 'py-3', 'md:py-3');
+      logo?.classList.remove('scale-90');
+    }
+  });
+
+  // 2. Lógica del Menú Hamburguesa
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      // Mostrar el menú a pantalla completa
+      mobileMenu?.classList.remove('opacity-0', 'pointer-events-none');
+      
+      // Animación: Convertir las 2 líneas en una "X" perfecta
+      line1?.classList.add('translate-y-[7px]', 'rotate-45');
+      line2?.classList.add('-translate-y-[7px]', '-rotate-45');
+    } else {
+      // Ocultar el menú
+      mobileMenu?.classList.add('opacity-0', 'pointer-events-none');
+      
+      // Restaurar las 2 líneas a su estado original
+      line1?.classList.remove('translate-y-[7px]', 'rotate-45');
+      line2?.classList.remove('-translate-y-[7px]', '-rotate-45');
+    }
+  }
+
+  // Al hacer clic en el botón de la hamburguesa, ejecutamos la función
+  menuBtn?.addEventListener('click', toggleMenu);
+
+  // Truco UX: Cerrar el menú automáticamente al hacer clic en cualquier enlace
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isMenuOpen) toggleMenu();
+    });
+  });
+</script>

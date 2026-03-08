@@ -1,17 +1,21 @@
 ---
-
+import MainLayouts from "../Layouts/MainLayouts.astro";
+import MainImg from "../components/Main_img.astro"; 
+import Navbar from "../components/Nabvar.astro";
+import About from "../components/About.astro";
+import Productos from "../components/Productos.astro";
+import Ubicacion from "../components/Ubicacion.astro";
+import Contacto from "../components/Contacto.astro"; 
+import Footer from "../components/Footer.astro"; 
 ---
+<MainLayouts id="inicio" title="Mi Web Ámbar">
+ 
+<Navbar />
+<MainImg />
+<About />
+<Productos />
+<Ubicacion />   
+<Contacto />
+<Footer />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+</MainLayouts>
