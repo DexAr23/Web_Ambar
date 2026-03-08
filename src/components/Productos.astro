@@ -7,20 +7,17 @@ const productos = [
   {
     titulo: "Bisutería",
     descripcion: "Piezas únicas y elegantes diseñadas para realzar tu belleza natural. Nuestra colección de bisutería combina artesanía detallada con estilos contemporáneos, creando accesorios perfectos que aportan luz y sofisticación a cualquier ocasión.",
-    imagen: "/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de bisutería
-    boton: "Ver Colección"
+    imagen: "/assets/Frontal_Ambar.jpeg" // Cambia esto por la foto de bisutería
   },
   {
     titulo: "Perfumes Árabes",
     descripcion: "Sumérgete en un mundo de aromas exóticos y envolventes. Seleccionamos fragancias exclusivas de larga duración que capturan la esencia del misticismo oriental, dejando una estela inolvidable y llena de personalidad a tu paso.",
-    imagen: "/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de perfumes
-    boton: "Descubrir Aromas"
+    imagen: "/assets/Frontal_Ambar.jpeg" // Cambia esto por la foto de perfumes
   },
   {
     titulo: "Moda y Complementos",
     descripcion: "Completa tu estilo con nuestra cuidada selección de prendas y accesorios. Diseños versátiles y llenos de carácter que se adaptan a tu ritmo de vida, aportando siempre ese toque distintivo y elegante que caracteriza a Ámbar.",
-    imagen: "/assets/Frontal_Ambar.jpeg", // Cambia esto por la foto de moda
-    boton: "Ver Catálogo"
+    imagen: "/assets/Frontal_Ambar.jpeg" // Cambia esto por la foto de moda
   }
 ];
 ---
@@ -56,12 +53,9 @@ const productos = [
             <h3 class="font-['Cinzel_Decorative'] text-3xl text-emerald-950 mb-4">
               {producto.titulo}
             </h3>
-            <p class="text-slate-600 text-lg leading-relaxed mb-8 font-light">
+            <p class="text-slate-600 text-lg leading-relaxed font-light">
               {producto.descripcion}
             </p>
-            <button class="px-8 py-3 border-2 border-[#D4A259] text-[#D4A259] hover:bg-[#D4A259] hover:text-white transition-colors duration-300 font-bold uppercase tracking-wider text-sm rounded">
-              {producto.boton}
-            </button>
           </div>
 
         </div>
